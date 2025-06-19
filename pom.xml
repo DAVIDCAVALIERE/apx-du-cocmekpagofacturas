@@ -13,7 +13,7 @@
 	<name>apx-du-cocmekpagofacturas</name>
 	<description>Pago de facturas - practica Meraki</description>
 	<properties>
-		<apx.core.online.version>7.14.6</apx.core.online.version>
+		<apx.core.online.version>7.14.7</apx.core.online.version>
 		<outputDirectoryDTOs>../../../target/dtos</outputDirectoryDTOs>
 		<outputDirectoryLibraries>../../../target/libraries</outputDirectoryLibraries>
 		<outputDirectoryTransactions>../../../target/transactions</outputDirectoryTransactions>
