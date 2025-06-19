@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.bbva.cmek</groupId>
@@ -36,6 +36,21 @@
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.bbva.cmek</groupId>
+			<artifactId>CMEKRME2</artifactId>
+			<version>0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bbva.elara</groupId>
+			<artifactId>elara-utility-jdbc-connector</artifactId>
+			<version>${apx.jdbc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.datiobd.daas</groupId>
+			<artifactId>mongodb-connector</artifactId>
+			<version>${apx.mongodb.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -47,13 +62,15 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${project.artifactId}-${project.version}</Bundle-SymbolicName>
-						<Bundle-Category>library</Bundle-Category>
+						<Bundle-Category>library-jdbc-mongo</Bundle-Category>
 						<Export-Package>
 							!*;version="${osgi.version.manifest}"
 						</Export-Package>
 						<Import-Package>
 							com.bbva.elara.aspect;version="${osgi.version.manifest}",
+							com.mongodb.*;version="[0.1, 2.0.0]",
 							org.aopalliance.aop;version="${osgi.version.manifest}",
+							org.bson.*;version="[0.1, 2.0.0]",
 							org.osgi.framework;version="${osgi.version.manifest}",
 							org.springframework.aop;version="${osgi.version.manifest}",
 							org.springframework.aop.framework;version="${osgi.version.manifest}",
@@ -71,7 +88,7 @@
 						<phase>install</phase>
 						<configuration>
 							<tasks>
-								<copy todir="${outputDirectoryLibraries}" file="./target/${project.artifactId}.jar" />
+								<copy todir="${outputDirectoryLibraries}" file="./target/${project.artifactId}.jar"/>
 							</tasks>
 						</configuration>
 						<goals>

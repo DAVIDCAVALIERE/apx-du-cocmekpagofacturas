@@ -1,13 +1,15 @@
 package com.bbva.cmek.lib.rme1;
 
+import com.bbva.cmek.dto.bill.PaymentDTO;
+
 /**
  * The  interface CMEKRME1 class...
  */
 public interface CMEKRME1 {
 
-	/**
-	 * The execute method...
-	 */
-	void execute();
-
+    /**
+     * The execute method...
+     */
+    PaymentDTO executeDoBillPayment(PaymentDTO request);
 }
+
