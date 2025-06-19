@@ -18,4 +18,11 @@ public abstract class AbstractCMEKTME101COTransaction extends AbstractTransactio
 	protected PaymentDTO getPayment(){
 		return (PaymentDTO)this.getParameter("payment");
 	}
+
+	/**
+	 * Set value for PaymentDTO output parameter payment
+	 */
+	protected void setPayment(final PaymentDTO field){
+		this.addParameter("payment", field);
+	}
 }
